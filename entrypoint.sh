@@ -10,9 +10,6 @@ NEUTRAL_EXIT_CODE=0
 echo "Checking if issue is a pull request..."
 (jq -r ".pull_request.url" "$GITHUB_EVENT_PATH") || exit $NEUTRAL_EXIT_CODE
 
-BHAVIN_PR_OBJ=$(jq -r ".pull_request.number" "$GITHUB_EVENT_PATH")
-echo "Bhavin dump PR obj $BHAVIN_PR_OBJ"
-
 PR_NUMBER=$(jq -r ".pull_request.number" "$GITHUB_EVENT_PATH")
 echo "Collecting information about PR #$PR_NUMBER of $GITHUB_REPOSITORY..."
 
